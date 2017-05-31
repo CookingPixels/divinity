@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<title>Jujubaland - Flavored communication</title>
+
+	<link href="css/landing.css" rel="stylesheet" type="text/css" />
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+	<script src="js/jquery-2.1.3.min.js" charset="utf-8"></script>
+	<script src="js/gsap/autoprefixer.js" charset="utf-8"></script>
+	<script src="js/gsap/TweenLite.js" charset="utf-8"></script>
+	<script src="js/gsap/TimelineLite.js" charset="utf-8"></script>
+	<script src="js/gsap/jquery.gsap.js" charset="utf-8"></script>
+	<script>
+	 if (typeof jQuery == 'undefined'){
+	    document.write(unescape('%3Cscript src="js/jquery-min.js" %3E%3C/script%3E'));
+	 }
+	</script>
+
+	<!-- <script src="js/landing.js"></script> -->
+	<script type="text/javascript" src="js/jquery.firefly.js"></script>
+	<script type="text/javascript" src="js/prefixfree.min.js"></script>
+	<script>
+		// Esto es un Preload posta?
+		<!--//--><![CDATA[//><!--
+		if (document.images) {
+			img1 = new Image();
+			img1.src = "../images/landing/land_pink.png";
+		}
+		//--><!]]>
+
+		$(window).load(function() {
+		  $('.splash').fadeOut('slow', function() { $(this).remove(); });
+		});
+	</script>
+	<script>
+	$(document).ready(function() {
+		//$('.splash').fadeOut(400);
+		$.firefly({
+			images : ['images/landing/1.jpg', 'images/landing/2.png', 'images/landing/3.png'],
+			total : 20,
+			on: '#divinidad'
+		})
+
+		$(".menu a").hover(
+			function(e){
+				var elem = $(this);
+				elem.find(".pop").fadeIn(300);
+				e.preventDefault();
+			},
+			function(e){
+				var elem = $(this);
+				elem.find(".pop").fadeOut(300);
+				e.preventDefault();
+			}
+		);
+	});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="bruma1"></div>
+		<div class="bruma2"></div>
+		<div class="divinidad floating_dv" id="divinidad">
+			<div class="eye"></div>
+			<div class="menu">
+				<a href="welcome_to_jujubaland.html" class="mobile floating2">
+					<div id="semillita-brillo"></div>
+					<img src="images/landing/jujuba-1.png" alt="" border="0" class="semilla1" />
+					<img src="images/landing/bubble1.png" alt="" border="0" class="bubble1 pop" />
+				</a>
+				<a href="http://jujubaland.com/jobs/jujubaland/sitio/maqueta-merged/" class="desktop floating">
+					<div id="semillita-brillo"></div>
+					<img src="images/landing/jujuba-2.png" alt="" border="0" class="semilla2" />
+					<img src="images/landing/bubble2.png" alt="" border="0" class="bubble2 pop" />
+				</a>
+			</div>
+		</div>
+		<div class="ghosts">
+			<div class="divinidad_ghost1 ghostfloat1"></div>
+			<div class="divinidad_ghost2 ghostfloat2"></div>
+		</div>
+	</div>
+	<div class="galaxy"></div>
+	<div class="galaxy2"></div>
+	<div class="astro1"></div>
+	<div class="astro2"></div>
+	<div class="astro3"></div>
+	<div class="meteorito"></div>
+	<div class="meteoro"></div>
+	<div class="stardust1"></div>
+	<div class="stardust2"></div>
+	<div class="stardust3"></div>
+
+	<div class="splash"></div>
+
+
+                               <!--+++++++
+                             ++++++++++++++++
+                          ++++++++++++++++++++++
+                        ++++++++++++++++++++++++++
+                      ++++++++++++++++++++++++++++++
+                     ++++++++++++++++++++++++++++++++
+                   +++++++++++++++++++++++++++++++++++
+                  ++++++++++++++++++++++++++++++++++++++
+                 ++++++++++++++++++++++++++++++++++++++++
+                ++++++++++++++++++++++++++++++++++++++++++
+               ++++++++++++++++++++++++++++++++++++++++++++
+              +++++++++++++++++++++++++++++++++++++++++++++
+              ++++++++++++++++++++++++++++++++++++++++++++++
+             ++++++++++++++++++++++++++++++++++++++++++++++++
+            +++++++++++++++++++++++++++++++++++++++++++++++++
+            ++++++++++++++++++++++++++++++++++++++++++++++++++
+           +++++++++++++++++++++++++++++++++++++++++++++++++++
+           ++++++++++++++++++++++++++++++++++++++++++++++++++++
+           ++++++++++++++++++++++++++++++++++++++++++++++++++++
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          +++++++++++++++++++++++++++++++++++++++++ ++++++++++++
+         +++++++++,;,+++++++++++++++++++++++++++++  ++++++++++++
+         +++++++++.  =+++++++++++++++++++++++++++   +++++++++++++
+         ++++++++++  =++++++++++++++++++++++++++++  +++++++++++++
+         ++++++++++  =+++++++++++++++++++++++++++=  +++++++++++++
+         ++++++++++  =++++++++;,=++++=+=.=+++++,;+  +++++++++++++
+         ++++++++++  =++++++     ;++; ;   ;++   .   +++++++++++++
+         ++++++++++  =+++++;=++-  +    +  .+;  ++-  +++++++++++++
+         ++++++++++  =+++++++++=  +-  ++; .+  -++=  +++++++++++++
+         ++++++++++  =+++++,      +-  ++; .+  +++=  +++++++++++++
+         ++++++++++  =++++=  ++=  +-  ++; .=  +++=  +++++++++++++
+         ++++++++++  =++++.  ++=  +-  ++; .+  -++=  +++++++++++++
+         ++++++++++  =++++;  =+.  +-  ++; .+   ++   +=+  ++++++++
+         ++++++++++       ;    .   ,  ++=   +    .   ,=  +++++++
+          ++++++++++=;;-++++=;+++-++++++++=+++=-+++-+++-++++++++
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+           ++++++++++++++++++++++++++++++++++++++++++++++++++++
+           ++++++++++++++++++++++++++++++++++++++++++++++++++++
+           +++++++++++++++++++++++++++++++++++++++++++++++++++
+            ++++++++++++Crafted with a lot of love++++++++++++
+             ++++++++++++++++++++++++++++++++++++++++++++++++
+             ++++++++++++++++++++++++++++++++++++++++++++++++
+ x          ++++++++++++++++++++++++++++++++++++++++++++++++
+  ++++   ++++++++++++++++++++++++++++++++++++++++++++++++++
+   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      +++++++++++++++++++++++++++++++++++++++++++++++++++
+       +++++++++++++++++++++++++++++++++++++++++++++++++
+         +++++++++++++++++++++++++++++++++++++++++++++
+           ++++++++++++++++++++++++++++++++++++++++++
+             +++++++++++++++++++++++++++++++++++++++
+               +++++++++++++++++++++++++++++++++++
+                  ++++++++++++++++++++++++++++++
+                     ++++++++++++++++++++++++
+                          +++++++++++++++-->
+
+
+</body>
+</html>
