@@ -11,13 +11,12 @@
 	/* Plugin defaults */
 	var defaults = {
 		images : [
-			'http://dharmmotyar.googlecode.com/svn/trunk/images/spark.png',
-			'http://dharmmotyar.googlecode.com/svn/trunk/images//spark2.png',
-			'http://dharmmotyar.googlecode.com/svn/trunk/images/spark3.png',
-			'http://dharmmotyar.googlecode.com/svn/trunk/images/spark4.png'],
-		total : 40
+			'images/landing/1.png',
+			'images/landing/2.png',
+			'images/landing/3.png'],
+		total : 20
 	};
-	
+
 	$.firefly = function(settings) {
 		$.firefly.settings = $.extend({}, defaults, settings);
 			if($.firefly.preloadImages()){
@@ -27,7 +26,7 @@
 			}
 		return;
 	};
-	
+
 	/* Public Functions */
 	$.firefly.create = function(img){
 		spark = $('<img>').attr({'src' : img}).hide();

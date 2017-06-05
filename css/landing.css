@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------------------------
 	TODO:
 	 - Hash links para navegar
-	 - Pasar lo que sea necesario a SVG
+	 - Pasar lo que sea necesario a SVG, y animar los colores y shapes con GS
 	 - Pasar animaciones a GSAP
 	 - Revisar implementación svg, no debería pixelarse en Chrome
 	 - Optimizar css, minificar de ser necesario
@@ -13,11 +13,22 @@
 
 @charset "UTF-8";
 body {
-/* 	background-color: #380052; */
-	background: url('../images/landing/space.jpg') no-repeat center top #380255;
+	background: url('../images/landing/space.png') no-repeat center top #380255;
+	background-size: cover;
+	margin: 0;
 }
+body::after {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: url('../images/landing/noise.png') repeat;
+	opacity: .3;
+}
+
 .splash {
-	background: url('../images/landing/land_pink.png') no-repeat center center #380255;
+	background-color: #380255;
 	height: 100%;
     left: 0;
     margin: 0;
@@ -27,21 +38,29 @@ body {
     width: 100%;
     z-index: 100;
 }
+.icon {
+	background: url('../images/landing/circle.svg') no-repeat center center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -100px;
+	margin-top: -100px;
+	width: 200px;
+	height: 200px;
+	cursor: pointer;
+	transition: transform .3s ease;
+}
+.icon:hover {
+	transform: scale(1.2);
+}
 .container {
 	width: 960px;
-	height: 640px;
-	margin:0 auto;
-	position: relative;
-}
-.bruma1 {
-	width: 444px;
-	height: 211px;
-	margin: 0 auto;
-	background: url('../images/landing/bruma1.png') no-repeat 0 0;
-	position: absolute;
-	top: 318px;
-	left: 395px;
-	z-index: 4;
+  height: 640px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -480px;
+  margin-top: -320px;
 }
 .divinidad {
 	width: 960px;
@@ -52,16 +71,15 @@ body {
 	z-index: 3;
 	transform:translate3d(0,0,0);
 }
-.eye {
+.allseeingeye {
 	background: url("../images/landing/the-all-seeing-eye.gif") no-repeat scroll 0 0 transparent;
-    height: 42px;
-    left: 436px;
-    margin: 0 auto;
-    position: absolute;
-    top: 58px;
-    width: 47px;
-    z-index: 4;
-	/* transform:translate3d(0,0,0); */
+  height: 42px;
+  left: 436px;
+  margin: 0 auto;
+  position: absolute;
+  top: 58px;
+  width: 47px;
+  z-index: 4;
 }
 .ghosts {
 	width: 591px;
@@ -75,7 +93,8 @@ body {
 	background: url('../images/landing/divinidad_ghost1.png') no-repeat 0 0;
 	position: absolute;
 	z-index: 2;
-	transform:translate3d(0,0,0);
+	transform: scale(1.2);
+	/*transform:translate3d(0,0,0);*/
 }
 .divinidad_ghost2 {
 	width: 960px;
@@ -84,7 +103,8 @@ body {
 	background: url('../images/landing/divinidad_ghost2.png') no-repeat 0 0;
 	position: absolute;
 	z-index: 1;
-	transform:translate3d(0,0,0);
+	transform: scale(1.4);
+	/*transform:translate3d(0,0,0);*/
 }
 .galaxy {
 	width: 345px;
@@ -94,7 +114,7 @@ body {
 	z-index: 1;
 	top: 116px;
 	right: 80px;
-	animation: rotation 90s infinite linear;
+	animation: rotation 60s infinite linear;
 	transform:translate3d(0,0,0);
 }
 .galaxy2 {
@@ -105,7 +125,7 @@ body {
 	z-index: 1;
 	top: 116px;
 	right: 80px;
-	animation: rotationback 90s infinite linear;
+	animation: rotationback 50s infinite linear;
 	transform:translate3d(0,0,0);
 }
 @keyframes rotation {
@@ -116,19 +136,19 @@ body {
 	from {transform: rotate(0deg);}
 	to {transform: rotate(-359deg);}
 }
-.menu {
+.choices {
 	height: 150px;
-    margin: 80px 0 0 210px;
-    position: absolute;
-    width: 505px;
+  margin: 80px 0 0 210px;
+  position: absolute;
+  width: 505px;
 }
-.desktop {
+.blueroad {
 	width: 77px;
 	height: 130px;
 	float: right;
 	transform:translate3d(0,0,0);
 }
-.mobile {
+.redroad {
 	width: 74px;
 	height: 130px;
 	float: left;
@@ -145,16 +165,14 @@ body {
 	z-index: 45;
 	animation: heartbeatingasone 2.5s infinite ease-in-out;
 }
-/*
+
 @keyframes blinking {
-	0% {opacity: 0.3;}
-	20% {opacity: 0.6;}
-	40% {opacity: 0.2;}
-	50% {opacity: 0.5;}
-	70% {opacity: 0.4;}
-	100% {opacity: 0.2;}
+	0% {opacity: 1;}
+	70% {opacity: 1;}
+	85% {opacity: 0.7;}
+	100% {opacity: 1;}
 }
-*/
+
 @keyframes heartbeatingasone {
 	0% {opacity: 0.1;}
 	40% {opacity: 0.2;}
@@ -172,14 +190,14 @@ body {
 .ghostfloat1 { animation: floating30 5s infinite ease-in-out; }
 .ghostfloat2 { animation: floating60 5s infinite ease-in-out; }
 @keyframes floating30 {
-    from {transform:translate(0, 0px);}
-    65% {transform:translate(0, 20px);}
-    to {transform: translate(0, -0px);}
+    from {transform:translate(0, 0px) scale(1.2);}
+    65% {transform:translate(0, 20px) scale(1.2);}
+    to {transform: translate(0, -0px) scale(1.2);}
 }
 @keyframes floating60 {
-    from {transform:translate(0, 0px);}
-    65% {transform:translate(0, 40px);}
-    to {transform: translate(0, -0px);}
+    from {transform:translate(0, 0px) scale(1.3);}
+    65% {transform:translate(0, 40px) scale(1.3);}
+    to {transform: translate(0, -0px) scale(1.3);}
 }
 .floating_dv {
 	animation: floating_dv 4s infinite ease-in-out;
@@ -213,10 +231,12 @@ body {
 	width: 59px;
 	height: 51px;
 	bottom: 0;
-	right: 250px;
+	right: 20%;
 	background: url('../images/landing/astro3.png') no-repeat 0 0;
 	position: absolute;
-	z-index: 1;
+	z-index: 3;
+	cursor: pointer;
+	animation: blinking 15s infinite;
 }
 @keyframes rotationCC {
 	from {transform: rotate(0deg);}
@@ -224,7 +244,7 @@ body {
 }
 .bubble1, .bubble2 {
 	position: absolute;
-	display: none;
+	opacity: 0;
 }
 .bubble1 {
 	top: -88px;
@@ -234,7 +254,17 @@ body {
 	top: -78px;
 	left: 60px;
 }
-
+.bruma1 {
+	width: 444px;
+	height: 211px;
+	margin: 0 auto;
+	background: url('../images/landing/bruma1.png') no-repeat 0 0;
+	opacity: .65;
+	position: absolute;
+	top: 318px;
+	left: 395px;
+	z-index: 4;
+}
 .bruma2 {
 	width: 860px;
 	height: 476px;
@@ -265,10 +295,11 @@ body {
 .stardust1 {
 	width: 575px;
 	height: 400px;
-    left: 0;
-    top: 0;
-    position: absolute;
+  left: 0;
+  top: 0;
+  position: absolute;
 	background: url('../images/landing/stardust1.png') no-repeat 0 0;
+	opacity: .65;
 	z-index: 1;
 }
 .stardust2 {
@@ -277,6 +308,7 @@ body {
 	top: 0;
 	right: 0;
 	background: url('../images/landing/stardust2.png') no-repeat 0 0;
+	opacity: .65;
 	position: absolute;
 	z-index: 1;
 }
@@ -284,7 +316,7 @@ body {
 	width: 742px;
 	height: 222px;
 	bottom: 0;
-    right: 0;
+  right: 0;
 	background: url('../images/landing/stardust3.png') no-repeat 0 0;
 	position: absolute;
 	z-index: 1;
