@@ -5,7 +5,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<title>Jujubaland - Flavored communication</title>
+	<title>Buddha multiverse</title>
 
 	<!-- <script type="text/javascript" src="js/prefixfree.min.js"></script> -->
 	<link href="css/landing.css" rel="stylesheet" type="text/css" />
@@ -20,43 +20,74 @@
 	<script src="js/landing.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="bruma1"></div>
-		<div class="bruma2"></div>
-		<div class="divinidad floating_dv" id="divinidad">
-			<div class="allseeingeye"></div>
-			<div class="choices">
-				<a href="welcome_to_jujubaland.html" class="redroad floating2">
-					<div id="semillita-brillo"></div>
-					<img src="images/landing/jujuba-1.png" alt="" border="0" class="semilla1" />
-					<img src="images/landing/bubble1.png" alt="" border="0" class="bubble1 pop" />
-				</a>
-				<a href="http://jujubaland.com/jobs/jujubaland/sitio/maqueta-merged/" class="blueroad floating">
-					<div id="semillita-brillo"></div>
-					<img src="images/landing/jujuba-2.png" alt="" border="0" class="semilla2" />
-					<img src="images/landing/bubble2.png" alt="" border="0" class="bubble2 pop" />
-				</a>
+	<div class="universe">
+		<div class="container">
+			<div class="bruma1"></div>
+			<div class="bruma2"></div>
+			<div class="divinidad floating_dv" id="divinidad">
+				<div class="allseeingeye"></div>
+				<div class="choices">
+					<!-- <a href="welcome_to_jujubaland.html" class="redroad floating2"> -->
+					<a href="#" class="redroad floating2">
+						<div id="semillita-brillo"></div>
+						<img src="images/landing/seed-1.png" alt="" border="0" class="semilla1" />
+						<img src="images/landing/red_balloon.svg" alt="" border="0" class="red_balloon pop" />
+					</a>
+					<!-- <a href="http://jujubaland.com/jobs/jujubaland/sitio/maqueta-merged/" class="blueroad floating"> -->
+					<a href="#" class="blueroad floating">
+						<div id="semillita-brillo"></div>
+						<img src="images/landing/seed-2.png" alt="" border="0" class="semilla2" />
+						<img src="images/landing/blue_balloon.svg" alt="" border="0" class="blue_balloon pop" />
+					</a>
+				</div>
+			</div>
+			<div class="ghosts">
+				<div class="divinidad_ghost1 ghostfloat1"></div>
+				<div class="divinidad_ghost2 ghostfloat2"></div>
 			</div>
 		</div>
-		<div class="ghosts">
-			<div class="divinidad_ghost1 ghostfloat1"></div>
-			<div class="divinidad_ghost2 ghostfloat2"></div>
-		</div>
-	</div>
-	<div class="galaxy"></div>
-	<div class="galaxy2"></div>
-	<div class="astro1"></div>
-	<div class="astro2"></div>
-	<div class="astro3"></div>
-	<div class="meteorito"></div>
-	<div class="meteoro"></div>
-	<div class="stardust1"></div>
-	<div class="stardust2"></div>
-	<div class="stardust3"></div>
+		<div class="galaxy"></div>
+		<div class="galaxy2"></div>
+		<div class="astro1"></div>
+		<div class="astro2"></div>
+		<div class="astro3"></div>
+		<div class="meteorito"></div>
+		<div class="meteoro"></div>
+		<div class="stardust1"></div>
+		<div class="stardust2"></div>
+		<div class="stardust3"></div>
 
-	<div class="splash">
-		<div class="icon"></div>
+		<div class="splash">
+			<div class="icon"></div>
+		</div>
+		<div class="overlay"></div>
 	</div>
+
+	<!-- How many px yo have scrolled ideal for parallax debugging -->
+	<!--------------- Not for production ------------>
+<script>
+	$(window).scroll(function () {
+			$('.scroll_meter').text("You've scrolled " + $(window).scrollTop() + " pixels");
+	});
+</script>
+<style>
+	.scroll_meter {
+		position: fixed;
+		display: block;
+		z-index: 999;
+		bottom: 2%;
+		right: 2%;
+		color: #056cda;
+		background-color: rgba(255, 255, 255, 0.6);
+		padding: 10px;
+		width: 230px;
+		text-align: center;
+	}
+</style>
+<div>
+			<p class="scroll_meter">Start scrolling</p>
+	</div>
+<!--------------- Not for production ------------>
 
 </body>
 </html>

@@ -14,22 +14,22 @@ $(document).ready(function() {
   //   on: '#divinidad'
   // })
 
-// Cara flotando como el buda, que se le haga zoom o scale deformandose hasta que cubre todo, y ahí aparece otra cara (tipo ludicrous speed)
+// Cara flotando como el buda, que se le haga zoom o scale deformandose hasta que cubre todo, y ahí aparece otra cara (tipo ludicrous speed, como los gif de maxi)
 
   let $splash = $('.splash')
   let $icon = $('.icon')
-
 
   // Splash violeta fadeout
   var welcome = function(){
 
     TweenLite.fromTo($splash, .4, {
+      autoAlpha: 0,
       opacity: 1,
-      ease: Quart.easeOut
+      ease: Quart.easeIn
     },
     {
       opacity: 0,
-      ease: Quart.easeIn
+      ease: Quart.easeOut
     })
 
   };
@@ -59,7 +59,6 @@ $(document).ready(function() {
         opacity: 0,
         onComplete: welcome,
         ease: Quad.easeInOut
-        // Volar el splash en el callback
       }
     );
   });
@@ -69,17 +68,18 @@ $(document).ready(function() {
   $('.astro3').on('click', function() {
     $.firefly({
       total : 30,
-      on: '.choices a'
+      on: '#divinidad'
     });
   });
 
-  // Click to spin con GS
+  // Click to spin con GreenSock
   // Easter egg #2
   // $('.galaxy').on('click', function(){
-  //   $(this).css('transform', 'rotate(+20deg)');
+  //   $(this).css('transform', 'rotate(+20deg)' + easing);
   // });
 
- // Scale box up/down on choices (seed) hover
+
+ // Scale and show tooltip on (seed) hover
  let $box = $(".choices a");
  let $pop = $box.children('.pop');
 
@@ -99,5 +99,42 @@ $(document).ready(function() {
       });
     }
   );
+
+
+  // ROADS
+
+  let $redroad = $(".redroad");
+  let $overlay = $(".overlay");
+
+  $redroad.on('click', function(){
+
+    $overlay.removeClass('blue').addClass('red');
+
+    var tween = TweenLite.fromTo(
+      $icon, .8, {
+        scale: 1,
+        ease: Quad.easeInOut
+      },
+      {
+        scale: 20,
+        opacity: 0,
+        onComplete: welcome,
+        ease: Quad.easeInOut
+        // Volar el splash en el callback
+      }
+    );
+  });
+
+  let $blueroad = $(".blueroad");
+
+  $blueroad.on('click', function(){
+    $overlay.removeClass('red').addClass('blue');
+  });
+
+  let $eye = $('.allseeingeye')
+
+  $eye.on('click', function(){
+    $overlay.removeClass('blue').removeClass('red');
+  });
 
 });

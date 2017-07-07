@@ -4,27 +4,37 @@
 	TODO:
 	 - Hash links para navegar
 	 - Pasar lo que sea necesario a SVG, y animar los colores y shapes con GS
-	 - Pasar animaciones a GSAP
+	 - Pasar animaciones a GSAP (creo q las transitions de CSS las acelera por hardware)
 	 - Revisar implementación svg, no debería pixelarse en Chrome
-	 - Optimizar css, minificar de ser necesario
+	 - Optimizar css, pasar a SCSS para poder aprovechar las variables y mixins
 	 - Limpiar comments
+	 - Cambiar cursores en mouseover?
+
 
 ------------------------------------------------------------------------------------------- */
 
 @charset "UTF-8";
+html {min-height: 100%;}
 body {
-	background: url('../images/landing/space.png') no-repeat center top #380255;
-	background-size: cover;
+	background-color: #380255;
+	font-family: sans-serif;
 	margin: 0;
 }
 body::after {
 	content: '';
 	display: block;
-	position: absolute;
+	position: fixed;
 	height: 100%;
 	width: 100%;
 	background: url('../images/landing/noise.png') repeat;
 	opacity: .3;
+}
+.universe {
+	background: url('../images/landing/space.png') no-repeat center top #380255;
+	background-size: contain;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 .splash {
@@ -52,6 +62,7 @@ body::after {
 }
 .icon:hover {
 	transform: scale(1.2);
+	background-color:
 }
 .container {
 	width: 960px;
@@ -77,6 +88,7 @@ body::after {
   left: 436px;
   margin: 0 auto;
   position: absolute;
+	cursor: pointer;
   top: 58px;
   width: 47px;
   z-index: 4;
@@ -190,14 +202,14 @@ body::after {
 .ghostfloat1 { animation: floating30 5s infinite ease-in-out; }
 .ghostfloat2 { animation: floating60 5s infinite ease-in-out; }
 @keyframes floating30 {
-    from {transform:translate(0, 0px) scale(1.2);}
-    65% {transform:translate(0, 20px) scale(1.2);}
-    to {transform: translate(0, -0px) scale(1.2);}
+    from {transform:translate(0, 0px) scale(1.1);}
+    65% {transform:translate(0, 20px) scale(1.1);}
+    to {transform: translate(0, -0px) scale(1.1);}
 }
 @keyframes floating60 {
-    from {transform:translate(0, 0px) scale(1.3);}
-    65% {transform:translate(0, 40px) scale(1.3);}
-    to {transform: translate(0, -0px) scale(1.3);}
+    from {transform:translate(0, 0px) scale(1.2);}
+    65% {transform:translate(0, 40px) scale(1.2);}
+    to {transform: translate(0, -0px) scale(1.2);}
 }
 .floating_dv {
 	animation: floating_dv 4s infinite ease-in-out;
@@ -242,17 +254,18 @@ body::after {
 	from {transform: rotate(0deg);}
 	to {transform: rotate(-359deg);}
 }
-.bubble1, .bubble2 {
+.red_balloon, .blue_balloon {
+	width: 200px;
 	position: absolute;
 	opacity: 0;
 }
-.bubble1 {
+.red_balloon {
 	top: -88px;
 	left: -200px;
 }
-.bubble2 {
-	top: -78px;
-	left: 60px;
+.blue_balloon {
+	top: -60px;
+	left: 90px;
 }
 .bruma1 {
 	width: 444px;
@@ -320,4 +333,21 @@ body::after {
 	background: url('../images/landing/stardust3.png') no-repeat 0 0;
 	position: absolute;
 	z-index: 1;
+}
+
+
+
+/*ROADS*/
+.overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	opacity: .75;
+	transition: background-color .6s ease-In;
+}
+.red {
+	background-color: #ff0000;
+}
+.blue {
+	background-color: #0500ff;
 }
